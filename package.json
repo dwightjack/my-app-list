@@ -6,7 +6,9 @@
   "homepage": "https://github.com/dwightjack/my-app-list",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "got": "^11.8.1"
+  },
   "engines": {
     "node": ">=14.0.0"
   },
