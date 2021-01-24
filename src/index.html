@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Application list</title>
-  <script type="module" src="./js/main.js"></script>
-</head>
-<body>
-  <header>
-    <h1>Dwight Jack's Workbench</h1>
-    <p>Random small apps and experiments.</p>
-  </header>
-  <main id="main"></main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Application list</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
+
+    <script type="module" src="./js/main.js"></script>
+    <style>
+      body {
+        background-color: #f6f6f6;
+        color: #444;
+      }
+      .container {
+        max-width: 980px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
+
+      .cluster {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .cluster > .label {
+        margin-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Dwight Jack's Workbench</h1>
+        <p>Random small apps and experiments.</p>
+      </header>
+      <main id="main"></main>
+    </div>
+  </body>
 </html>

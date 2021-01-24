@@ -1,4 +1,4 @@
-import { app, h, text } from 'https://unpkg.com/hyperapp';
+import { app, h, text } from 'https://unpkg.com/hyperapp@2';
 
 const SetStatus = (state, status) => ({ ...state, status });
 
@@ -25,10 +25,27 @@ function FetchProjects(dispatch) {
 }
 
 const repoItem = ({ name, topics, homepageUrl, description }) =>
-  h('li', {}, [
-    h('h2', {}, [h('a', { href: homepageUrl, target: '_blank' }, text(name))]),
+  h('article', { class: 'card' }, [
+    h(
+      'header',
+      {},
+      h('h2', {}, [
+        h(
+          'a',
+          {
+            href: homepageUrl,
+            target: '_blank',
+          },
+          text(name),
+        ),
+      ]),
+    ),
     h('p', {}, text(description)),
-    h('p', {}, text(topics.join(', '))),
+    h(
+      'p',
+      { class: 'cluster' },
+      topics.map((topic) => h('span', { class: 'label' }, text(topic))),
+    ),
   ]);
 
 app({
@@ -42,11 +59,11 @@ app({
   node: document.getElementById('main'),
   view: ({ repos, status }) =>
     h(
-      'div',
+      'main',
       {},
       branch(status, {
         loading: h('p', {}, text('Loading...')),
-        loaded: h('ul', {}, repos.map(repoItem)),
+        loaded: h('div', {}, repos.map(repoItem)),
         error: h('p', {}, text('Error')),
       }),
     ),
