@@ -5,17 +5,10 @@
     "browser": true,
     "es6": true
   },
-  "parser": "babel-eslint",
   "rules": {
     "no-shadow": "warn",
     "block-scoped-var": "error",
     "consistent-return": "error",
     "eqeqeq": "error"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.test.js", "**/*.spec.js"],
-      "env": { "jest": true }
-    }
-  ]
+  }
 }
