@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Codeful</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
-
     <script type="module" src="./js/main.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <style>
       body {
         background-color: #f6f6f6;
@@ -37,7 +40,43 @@
         <h1>Codeful</h1>
         <p>Random small apps and experiments.</p>
       </header>
-      <main id="main"></main>
+      <main id="main" x-data>
+        <template x-if="$store.status === 'loading'">
+          <p>Loading...</p>
+        </template>
+        <template x-if="$store.status === 'error'"
+          ><p>Error loading data!</p></template
+        >
+        <template x-if="$store.status === 'loaded'">
+          <template x-for="repo in $store.repos.items" :key="repo.name">
+            <article class="card">
+              <header>
+                <h2>
+                  <a
+                    x-bind:href="repo.homepageUrl"
+                    target="_blank"
+                    x-text="repo.name"
+                  ></a>
+                </h2>
+              </header>
+
+              <p>
+                <span x-text="repo.description"></span>
+                <br />
+                <small>
+                  <a x-bind:href="repo.url" target="_blank">GitHub</a>
+                </small>
+              </p>
+
+              <p class="cluster">
+                <template x-for="topic in repo.topics" :key="topic">
+                  <span class="label" x-text="topic"></span>
+                </template>
+              </p>
+            </article>
+          </template>
+        </template>
+      </main>
     </div>
   </body>
 </html>
