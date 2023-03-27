@@ -14,7 +14,7 @@
     "build": "node ./scripts/build.js"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.15.0"
   },
   "repository": {
     "type": "git",
