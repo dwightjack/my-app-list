@@ -1,6 +1,6 @@
-const got = require('got');
+import got from 'got';
 
-const handler = async () => {
+export async function handler() {
   try {
     const { body } = await got.post('https://api.github.com/graphql', {
       responseType: 'json',
@@ -47,6 +47,4 @@ const handler = async () => {
   } catch (error) {
     return { statusCode: 500, body: error.toString() };
   }
-};
-
-module.exports = { handler };
+}
