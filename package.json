@@ -27,7 +27,7 @@
     "esbuild": "^0.17.14",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-n": "15.6.1",
+    "eslint-plugin-n": "15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "html-minifier": "^4.0.0",
     "netlify-cli": "^13.2.1",
