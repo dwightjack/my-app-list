@@ -19,8 +19,8 @@ devDependencies:
     specifier: ^8.8.0
     version: 8.8.0(eslint@8.36.0)
   eslint-plugin-n:
-    specifier: 15.6.1
-    version: 15.6.1(eslint@8.36.0)
+    specifier: 15.7.0
+    version: 15.7.0(eslint@8.36.0)
   eslint-plugin-prettier:
     specifier: ^4.2.1
     version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.36.0)(prettier@2.8.7)
@@ -3326,8 +3326,8 @@ packages:
       regexpp: 3.2.0
     dev: true
 
-  /eslint-plugin-n@15.6.1(eslint@8.36.0):
-    resolution: {integrity: sha512-R9xw9OtCRxxaxaszTQmQAlPgM+RdGjaL1akWuY/Fv9fRAi8Wj4CUKc6iYVG8QNRjRuo8/BqVYIpfqberJUEacA==}
+  /eslint-plugin-n@15.7.0(eslint@8.36.0):
+    resolution: {integrity: sha512-jDex9s7D/Qial8AGVIHq4W7NswpUD5DPDL2RH8Lzd9EloWUuvUkHfv4FRLMipH5q2UtyurorBkPeNi1wVWNh3Q==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       eslint: '>=7.0.0'
