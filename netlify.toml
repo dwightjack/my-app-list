@@ -5,3 +5,6 @@
 [functions]
   directory = "netlify_functions"
   node_bundler = "esbuild"
+
+[dev]
+publish = "src"
