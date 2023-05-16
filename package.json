@@ -12,7 +12,7 @@
   "scripts": {
     "start": "netlify dev",
     "lint": "eslint .",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.mjs"
   },
   "engines": {
     "node": ">=18.15.0"
