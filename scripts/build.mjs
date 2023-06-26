@@ -13,11 +13,14 @@ const html = await fs.readFile(join(SRC, 'index.html'), 'utf-8');
 await fs.rm(DIST, { recursive: true, force: true });
 
 await build({
-  entryPoints: [join(SRC, 'js/main.js')],
+  entryPoints: [join(SRC, 'js/main.mjs')],
   bundle: true,
   format: 'esm',
   target: 'esnext',
   outdir: join(DIST, 'js'),
+  outExtension: {
+    '.js': '.mjs',
+  },
   minify: true,
 });
 

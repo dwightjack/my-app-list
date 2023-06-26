@@ -7,4 +7,4 @@
   node_bundler = "esbuild"
 
 [dev]
-publish = "src"
+  publish = "src"
