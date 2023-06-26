@@ -8,7 +8,7 @@
   "license": "MIT",
   "packageManager": "pnpm@8.6.4",
   "dependencies": {
-    "got": "^12.6.0"
+    "got": "^13.0.0"
   },
   "scripts": {
     "start": "netlify dev",
@@ -24,14 +24,14 @@
   },
   "bugs": "https://github.com/dwightjack/my-app-list/issues",
   "devDependencies": {
-    "del": "^7.0.0",
-    "esbuild": "^0.18.0",
-    "eslint": "^8.36.0",
+    "@types/node": "^20.3.1",
+    "esbuild": "^0.18.8",
+    "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-n": "16.0.1",
     "eslint-plugin-prettier": "^4.2.1",
     "html-minifier": "^4.0.0",
-    "netlify-cli": "^15.0.0",
-    "prettier": "^2.8.7"
+    "netlify-cli": "^15.6.0",
+    "prettier": "^2.8.8"
   }
 }

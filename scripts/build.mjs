@@ -1,18 +1,16 @@
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { deleteAsync } from 'del';
-import { promises } from 'fs';
+import { promises as fs } from 'node:fs';
 import { minify } from 'html-minifier';
 import { build } from 'esbuild';
 
-const { readFile, writeFile } = promises;
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const SRC = resolve(__dirname, '../src');
 const DIST = resolve(__dirname, '../dist');
-const html = await readFile(join(SRC, 'index.html'), 'utf-8');
+const html = await fs.readFile(join(SRC, 'index.html'), 'utf-8');
 
-await deleteAsync([`${DIST}/**`]);
+await fs.rm(DIST, { recursive: true, force: true });
 
 await build({
   entryPoints: [join(SRC, 'js/main.js')],
@@ -23,7 +21,7 @@ await build({
   minify: true,
 });
 
-await writeFile(
+await fs.writeFile(
   join(DIST, 'index.html'),
   minify(html, {
     collapseWhitespace: true,
