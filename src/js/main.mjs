@@ -1,66 +1,83 @@
-import { app, h, text } from 'https://cdn.skypack.dev/hyperapp@2';
+//@ts-check
+import { reactive, html } from 'https://esm.sh/@arrow-js/core';
 
-const initialState = {
+/**
+ * @typedef {Object} Repository
+ * @property {string} name
+ * @property {string} topics
+ * @property {string} homepageUrl
+ * @property {string} description
+ * @property {string} url
+ */
+
+/**
+ * @typedef {Object} Data
+ * @property {'idle' | 'loading' | 'loaded' | 'error'} status
+ * @property {Repository[]} repos
+ */
+
+/**
+ * @type {Data}
+ */
+const data = reactive({
   status: 'idle',
   repos: [],
-};
-
-const SetStatus = (state, status) => ({ ...state, status });
-
-const GotProjects = (state, repos = []) => ({
-  ...SetStatus(state, 'loaded'),
-  repos,
 });
 
-function branch(prop, branches) {
-  return branches[prop] || branches.default;
+function branch(branches) {
+  return branches[data.status] || branches.default;
 }
 
-async function FetchProjects(dispatch) {
-  dispatch(SetStatus, 'loading');
+async function fetchProjects() {
+  data.status = 'loading';
 
   try {
     const response = await fetch('/.netlify/functions/fetch-projects');
     if (!response.ok) {
       throw response;
     }
-    dispatch(GotProjects, await response.json());
+    Object.assign(data, {
+      status: 'loaded',
+      repos: await response.json(),
+    });
   } catch (error) {
     console.error(error);
-    dispatch(SetStatus, 'error');
+    Object.assign(data, {
+      status: 'error',
+      repos: [],
+    });
   }
 }
 
-function Link(href, txt) {
-  return h('a', { target: '_blank', href }, text(txt));
-}
-
-function Label(txt) {
-  return h('span', { class: 'label' }, text(txt));
-}
-
+/**
+ *
+ * @param {Repository} repository
+ * @returns
+ */
 function RepoItem({ name, topics, homepageUrl, description, url }) {
-  return h('article', { class: 'card' }, [
-    h('header', {}, h('h2', {}, Link(homepageUrl, name))),
-    h('p', {}, [
-      h('div', {}, text(description)),
-      h('small', {}, Link(url, 'GitHub')),
-    ]),
-    h('p', { class: 'cluster' }, topics.map(Label)),
-  ]);
+  return html`<article class="card">
+    <header>
+      <h2>
+        <a href="${homepageUrl}" target="_blank">${name}</a>
+      </h2>
+    </header>
+    <p>
+      ${description}<br />
+      <small>
+        <a href="${url}" target="_blank">GitHub</a>
+      </small>
+    </p>
+    <p>${topics.map((txt) => html`<span class="label">${txt}</span>`)}</p>
+  </article>`.key(url);
 }
 
-app({
-  init: [initialState, [FetchProjects]],
-  node: document.getElementById('main'),
-  view: ({ repos, status }) =>
-    h(
-      'main',
-      {},
-      branch(status, {
-        loading: h('p', {}, text('Loading...')),
-        loaded: h('div', {}, repos.map(RepoItem)),
-        error: h('p', {}, text('Error')),
-      }),
-    ),
-});
+const template = html`${() =>
+  branch({
+    loading: html`<p>Loading...</p>`,
+    loaded: data.repos.map(RepoItem),
+    error: html`<p>Error!</p>`,
+  })}`;
+
+template(document.getElementById('main'));
+
+fetchProjects();
