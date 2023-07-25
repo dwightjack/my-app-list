@@ -28,7 +28,7 @@
       }
     },
     {
-      "files": ["src/**/*.js"],
+      "files": ["src/**/*.mjs"],
       "env": {
         "browser": true,
         "es6": true
