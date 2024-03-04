@@ -12,7 +12,7 @@ dependencies:
 devDependencies:
   '@types/node':
     specifier: ^20.3.1
-    version: 20.11.22
+    version: 20.11.24
   esbuild:
     specifier: ^0.20.0
     version: 0.20.1
@@ -33,7 +33,7 @@ devDependencies:
     version: 4.0.0
   netlify-cli:
     specifier: ^15.10.0
-    version: 15.11.0(@types/node@20.11.22)
+    version: 15.11.0(@types/node@20.11.24)
   prettier:
     specifier: ^3.0.1
     version: 3.2.5
@@ -685,7 +685,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.10
-      '@types/node': 20.11.22
+      '@types/node': 20.11.24
     dev: true
 
   /@grpc/proto-loader@0.7.10:
@@ -766,7 +766,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.11.22
+      '@types/node': 20.11.24
       '@types/yargs': 16.0.9
       chalk: 4.1.2
     dev: true
@@ -830,7 +830,7 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /@netlify/build@29.17.3(@types/node@20.11.22)(debug@4.3.4):
+  /@netlify/build@29.17.3(@types/node@20.11.24)(debug@4.3.4):
     resolution: {integrity: sha512-8itNAX+3USSZ6I4vx/XwMLJXiliGMVhaKcIVtcD9Wc1AQsSBFiNyDOi7V/8ZYe1iPsKP0bpDCHCQtOPGoheAfQ==}
     engines: {node: ^14.16.0 || >=16.0.0}
     hasBin: true
@@ -886,7 +886,7 @@ packages:
       strip-ansi: 7.1.0
       supports-color: 9.4.0
       terminal-link: 3.0.0
-      ts-node: 10.9.2(@types/node@20.11.22)(typescript@5.3.3)
+      ts-node: 10.9.2(@types/node@20.11.24)(typescript@5.3.3)
       typescript: 5.3.3
       uuid: 9.0.0
       yargs: 17.7.2
@@ -2116,7 +2116,7 @@ packages:
   /@types/http-proxy@1.17.14:
     resolution: {integrity: sha512-SSrD0c1OQzlFX7pGu1eXxSEjemej64aaNPRhhVYUGqXh0BtldAAx37MG8btcumvpgKyZp1F5Gn3JkktdxiFv6w==}
     dependencies:
-      '@types/node': 20.11.22
+      '@types/node': 20.11.24
     dev: true
 
   /@types/istanbul-lib-coverage@2.0.6:
@@ -2135,8 +2135,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.3
     dev: true
 
-  /@types/node@20.11.22:
-    resolution: {integrity: sha512-/G+IxWxma6V3E+pqK1tSl2Fo1kl41pK1yeCyDsgkF9WlVAme4j5ISYM2zR11bgLFJGLN5sVK40T4RJNuiZbEjA==}
+  /@types/node@20.11.24:
+    resolution: {integrity: sha512-Kza43ewS3xoLgCEpQrsT+xRo/EJej1y0kVYGiLFE1NEODXGzTfwiC6tXTLMQskn1X4/Rjlh0MQUvx9W+L9long==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -2167,7 +2167,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.11.22
+      '@types/node': 20.11.24
     dev: true
     optional: true
 
@@ -2744,8 +2744,8 @@ packages:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
 
-  /bare-events@2.2.0:
-    resolution: {integrity: sha512-Yyyqff4PIFfSuthCZqLlPISTWHmnQxoPuAvkmgzsJEmG3CesdIv6Xweayl0JkCZJSB2yYIdJyEz97tpxNhgjbg==}
+  /bare-events@2.2.1:
+    resolution: {integrity: sha512-9GYPpsPFvrWBkelIhOhTWtkeZxVxZOdb3VnFTCzlOo3OjvmTvzLoZFUT8kNFACx0vJej6QPney1Cf9BvzCNE/A==}
     requiresBuild: true
     dev: true
     optional: true
@@ -6391,7 +6391,7 @@ packages:
     resolution: {integrity: sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==}
     dev: true
 
-  /netlify-cli@15.11.0(@types/node@20.11.22):
+  /netlify-cli@15.11.0(@types/node@20.11.24):
     resolution: {integrity: sha512-GKw1sHJ8kgI+7EWnSuKclwDejIlaFZkgFlLYke7UdwRFrHzFWliD4MqkhCHkMlhPu5SU4QCO2ML+UnfG+okZbA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -6399,7 +6399,7 @@ packages:
     dependencies:
       '@bugsnag/js': 7.20.2
       '@fastify/static': 6.10.2
-      '@netlify/build': 29.17.3(@types/node@20.11.22)(debug@4.3.4)
+      '@netlify/build': 29.17.3(@types/node@20.11.24)(debug@4.3.4)
       '@netlify/build-info': 7.7.3
       '@netlify/config': 20.6.4
       '@netlify/edge-bundler': 8.17.1
@@ -7270,7 +7270,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.11.22
+      '@types/node': 20.11.24
       long: 5.2.3
     dev: true
 
@@ -8055,7 +8055,7 @@ packages:
       fast-fifo: 1.3.2
       queue-tick: 1.0.1
     optionalDependencies:
-      bare-events: 2.2.0
+      bare-events: 2.2.1
     dev: true
 
   /string-template@0.2.1:
@@ -8463,7 +8463,7 @@ packages:
     engines: {node: '>= 14.0.0'}
     dev: true
 
-  /ts-node@10.9.2(@types/node@20.11.22)(typescript@5.3.3):
+  /ts-node@10.9.2(@types/node@20.11.24)(typescript@5.3.3):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -8482,7 +8482,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.11.22
+      '@types/node': 20.11.24
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
