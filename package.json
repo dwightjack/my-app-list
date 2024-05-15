@@ -6,7 +6,7 @@
   "homepage": "https://github.com/dwightjack/my-app-list",
   "main": "index.js",
   "license": "MIT",
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@9.1.1",
   "dependencies": {
     "got": "^14.0.0"
   },
