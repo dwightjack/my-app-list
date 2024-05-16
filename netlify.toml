@@ -1,10 +1,10 @@
 [build]
-  publish = "dist/"
-  command = "npm run build"
+publish = "src/"
+command = "pnpm run lint"
 
 [functions]
-  directory = "netlify_functions"
-  node_bundler = "esbuild"
+directory = "netlify_functions"
+node_bundler = "esbuild"
 
 [dev]
-  publish = "src"
+publish = "src"

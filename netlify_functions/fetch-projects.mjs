@@ -1,14 +1,14 @@
-import got from 'got';
+import ky from 'ky';
 
 export async function handler() {
   try {
-    const { body } = await got.post('https://api.github.com/graphql', {
-      responseType: 'json',
-      headers: {
-        authorization: `bearer ${process.env.GITHUB_API_TOKEN}`,
-      },
-      json: {
-        query: `{
+    const body = await ky
+      .post('https://api.github.com/graphql', {
+        headers: {
+          authorization: `bearer ${process.env.GITHUB_API_TOKEN}`,
+        },
+        json: {
+          query: `{
           search(type: REPOSITORY, query: "user:dwightjack topic:web-application", last: 100) {
             repos: edges {
               repo: node {
@@ -29,8 +29,9 @@ export async function handler() {
             }
           }
         }`,
-      },
-    });
+        },
+      })
+      .json();
 
     const repos = body.data.search.repos.map(({ repo }) => {
       const { repositoryTopics, ...data } = repo;
