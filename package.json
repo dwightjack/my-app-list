@@ -6,7 +6,7 @@
   "homepage": "https://github.com/dwightjack/my-app-list",
   "main": "index.js",
   "license": "MIT",
-  "packageManager": "pnpm@9.15.6",
+  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "start": "netlify dev",
     "lint": "eslint ."
