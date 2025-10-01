@@ -10,29 +10,29 @@ importers:
     dependencies:
       ky:
         specifier: ^1.2.4
-        version: 1.8.1
+        version: 1.8.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.2.0
         version: 9.33.0
       '@types/node':
         specifier: ^22.0.0
-        version: 22.17.1
+        version: 22.17.2
       eslint:
         specifier: ^9.2.0
         version: 9.33.0(jiti@2.4.2)
       eslint-config-prettier:
         specifier: ^10.0.0
-        version: 10.1.5(eslint@9.33.0(jiti@2.4.2))
+        version: 10.1.8(eslint@9.33.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.0.0
-        version: 5.5.4(eslint-config-prettier@10.1.5(eslint@9.33.0(jiti@2.4.2)))(eslint@9.33.0(jiti@2.4.2))(prettier@3.6.2)
+        version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.33.0(jiti@2.4.2)))(eslint@9.33.0(jiti@2.4.2))(prettier@3.6.2)
       globals:
         specifier: ^15.2.0
         version: 15.15.0
       netlify-cli:
         specifier: ^17.0.0
-        version: 17.38.1(@types/node@22.17.1)(picomatch@4.0.2)
+        version: 17.38.1(@types/node@22.17.2)(picomatch@4.0.2)
       prettier:
         specifier: ^3.0.1
         version: 3.6.2
@@ -895,8 +895,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@22.17.1':
-    resolution: {integrity: sha512-y3tBaz+rjspDTylNjAX37jEC3TETEFGNJL6uQDxwF9/8GLLIjW1rvVHlynyuUKMnMr1Roq8jOv3vkopBjC4/VA==}
+  '@types/node@22.17.2':
+    resolution: {integrity: sha512-gL6z5N9Jm9mhY+U2KXZpteb+09zyffliRkZyZOHODGATyC5B1Jt/7TzuuiLkFsSUMLbS1OLmlj/E+/3KF4Q/4w==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1865,8 +1865,8 @@ packages:
     engines: {node: '>=6.0'}
     hasBin: true
 
-  eslint-config-prettier@10.1.5:
-    resolution: {integrity: sha512-zc1UmCpNltmVY34vuLRV61r1K27sWuX39E+uyUnY8xS2Bex88VV9cugG+UZbRSRGtGyFboj+D8JODyme1plMpw==}
+  eslint-config-prettier@10.1.8:
+    resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -2752,8 +2752,8 @@ packages:
   kuler@2.0.0:
     resolution: {integrity: sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==}
 
-  ky@1.8.1:
-    resolution: {integrity: sha512-7Bp3TpsE+L+TARSnnDpk3xg8Idi8RwSLdj6CMbNWoOARIrGrbuLGusV0dYwbZOm4bB3jHNxSw8Wk/ByDqJEnDw==}
+  ky@1.8.2:
+    resolution: {integrity: sha512-XybQJ3d4Ea1kI27DoelE5ZCT3bSJlibYTtQuMsyzKox3TMyayw1asgQdl54WroAm+fIA3ZCr8zXW2RpR7qWVpA==}
     engines: {node: '>=18'}
 
   lambda-local@2.2.0:
@@ -4783,7 +4783,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.17.1
+      '@types/node': 22.17.2
       '@types/yargs': 16.0.9
       chalk: 4.1.2
 
@@ -4831,7 +4831,7 @@ snapshots:
       yaml: 2.7.0
       yargs: 17.7.2
 
-  '@netlify/build@29.58.0(@opentelemetry/api@1.8.0)(@types/node@22.17.1)(picomatch@4.0.2)':
+  '@netlify/build@29.58.0(@opentelemetry/api@1.8.0)(@types/node@22.17.2)(picomatch@4.0.2)':
     dependencies:
       '@bugsnag/js': 7.25.0
       '@netlify/blobs': 7.4.0
@@ -4888,7 +4888,7 @@ snapshots:
       strip-ansi: 7.1.0
       supports-color: 9.4.0
       terminal-link: 3.0.0
-      ts-node: 10.9.2(@types/node@22.17.1)(typescript@5.7.2)
+      ts-node: 10.9.2(@types/node@22.17.2)(typescript@5.7.2)
       typescript: 5.7.2
       uuid: 9.0.1
       yargs: 17.7.2
@@ -5327,7 +5327,7 @@ snapshots:
 
   '@types/http-proxy@1.17.15':
     dependencies:
-      '@types/node': 22.17.1
+      '@types/node': 22.17.2
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -5341,7 +5341,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@22.17.1':
+  '@types/node@22.17.2':
     dependencies:
       undici-types: 6.21.0
 
@@ -5359,7 +5359,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.17.1
+      '@types/node': 22.17.2
     optional: true
 
   '@typescript-eslint/types@5.62.0': {}
@@ -6381,18 +6381,18 @@ snapshots:
     optionalDependencies:
       source-map: 0.6.1
 
-  eslint-config-prettier@10.1.5(eslint@9.33.0(jiti@2.4.2)):
+  eslint-config-prettier@10.1.8(eslint@9.33.0(jiti@2.4.2)):
     dependencies:
       eslint: 9.33.0(jiti@2.4.2)
 
-  eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.5(eslint@9.33.0(jiti@2.4.2)))(eslint@9.33.0(jiti@2.4.2))(prettier@3.6.2):
+  eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.33.0(jiti@2.4.2)))(eslint@9.33.0(jiti@2.4.2))(prettier@3.6.2):
     dependencies:
       eslint: 9.33.0(jiti@2.4.2)
       prettier: 3.6.2
       prettier-linter-helpers: 1.0.0
       synckit: 0.11.11
     optionalDependencies:
-      eslint-config-prettier: 10.1.5(eslint@9.33.0(jiti@2.4.2))
+      eslint-config-prettier: 10.1.8(eslint@9.33.0(jiti@2.4.2))
 
   eslint-scope@8.4.0:
     dependencies:
@@ -7371,7 +7371,7 @@ snapshots:
 
   kuler@2.0.0: {}
 
-  ky@1.8.1: {}
+  ky@1.8.2: {}
 
   lambda-local@2.2.0:
     dependencies:
@@ -7669,12 +7669,12 @@ snapshots:
 
   nested-error-stacks@2.1.1: {}
 
-  netlify-cli@17.38.1(@types/node@22.17.1)(picomatch@4.0.2):
+  netlify-cli@17.38.1(@types/node@22.17.2)(picomatch@4.0.2):
     dependencies:
       '@bugsnag/js': 7.25.0
       '@fastify/static': 7.0.4
       '@netlify/blobs': 8.1.0
-      '@netlify/build': 29.58.0(@opentelemetry/api@1.8.0)(@types/node@22.17.1)(picomatch@4.0.2)
+      '@netlify/build': 29.58.0(@opentelemetry/api@1.8.0)(@types/node@22.17.2)(picomatch@4.0.2)
       '@netlify/build-info': 7.17.0
       '@netlify/config': 20.21.0
       '@netlify/edge-bundler': 12.3.1(supports-color@9.4.0)
@@ -8074,7 +8074,7 @@ snapshots:
 
   package-json@10.0.1:
     dependencies:
-      ky: 1.8.1
+      ky: 1.8.2
       registry-auth-token: 5.0.3
       registry-url: 6.0.1
       semver: 7.6.3
@@ -8875,14 +8875,14 @@ snapshots:
 
   triple-beam@1.4.1: {}
 
-  ts-node@10.9.2(@types/node@22.17.1)(typescript@5.7.2):
+  ts-node@10.9.2(@types/node@22.17.2)(typescript@5.7.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.17.1
+      '@types/node': 22.17.2
       acorn: 8.15.0
       acorn-walk: 8.3.4
       arg: 4.1.3
