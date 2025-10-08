@@ -43,11 +43,13 @@
             </header>
             <p>
               <span data-bind="text: description"></span><br />
-              <small>
-                <a data-bind="attr: { href: url }" target="_blank">GitHub</a>
-              </small>
+              <a
+                class="card__link"
+                data-bind="attr: { href: url }"
+                target="_blank"
+              >GitHub</a>
             </p>
-            <p data-bind="foreach: topics">
+            <p data-bind="foreach: topics" class="cluster">
               <span class="label" data-bind="text: $data"></span>
             </p>
           </article>
