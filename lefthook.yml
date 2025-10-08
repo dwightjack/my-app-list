@@ -11,4 +11,4 @@ pre-commit:
           - run: pnpm dprint check --staged
     - name: Other files
       glob: "*.{hmtl,json,toml,yaml,css}"
-      run: pnpm dprint check --staged
+      run: pnpm dprint check --staged --allow-no-files
