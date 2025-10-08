@@ -20,7 +20,7 @@ class ViewModel {
   /**
    * @type {Observable<Status>}
    */
-  status = ko.observable('idle');
+  status = ko.observable("idle");
   /**
    * @type {Observable<Repository[]>}
    */
@@ -29,31 +29,31 @@ class ViewModel {
   /**
    * @type {Observable<boolean>}
    */
-  isLoading = ko.computed(() => this.status() === 'loading');
+  isLoading = ko.computed(() => this.status() === "loading");
 
   /**
    * @type {Observable<boolean>}
    */
-  isError = ko.computed(() => this.status() === 'error');
+  isError = ko.computed(() => this.status() === "error");
 
   async fetchProjects() {
-    this.status('loading');
+    this.status("loading");
 
     try {
-      const response = await fetch('/.netlify/functions/fetch-projects');
+      const response = await fetch("/.netlify/functions/fetch-projects");
       if (!response.ok) {
         throw response;
       }
-      this.status('loaded');
+      this.status("loaded");
       this.repos.push(...(await response.json()));
     } catch (error) {
       console.error(error);
-      this.status('error');
+      this.status("error");
       this.repos.removeAll();
     }
   }
 }
 const vm = new ViewModel();
-ko.applyBindings(vm, document.getElementById('main'));
+ko.applyBindings(vm, document.querySelector("#main"));
 
 vm.fetchProjects();

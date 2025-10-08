@@ -1,6 +1,6 @@
 [build]
 publish = "src/"
-command = "pnpm run lint"
+command = "pnpm run check"
 
 [functions]
 directory = "netlify_functions"

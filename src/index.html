@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codeful</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+      integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+    </script>
+    <script type="module" src="./js/main.mjs"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codeful</title>
-  <link rel="stylesheet" href="./css/main.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
-    integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="module" src="./js/main.mjs"></script>
-
-</head>
-
-<body>
-  <div class="container stack">
-    <header id="header">
-      <h1>Codeful</h1>
-      <p>Small apps and experiments by <a href="https://marco.solazzi.me">Marco Solazzi</a>.</p>
-    </header>
-    <main id="main">
-      <div data-bind="if: isLoading">
-        <p>Loading...</p>
-      </div>
-      <div data-bind="if: isError">
-        <p>Error!</p>
-      </div>
-      <div class="stack" data-bind="foreach: repos">
-        <article class="card">
-          <header>
-            <h2 class="card__title">
-              <a data-bind="attr: { href: homepageUrl}, text: name" target="_blank"></a>
-            </h2>
-          </header>
-          <p>
-            <span data-bind="text: description"></span><br />
-            <small>
-              <a data-bind="attr: { href: url }" target="_blank">GitHub</a>
-            </small>
-          </p>
-          <p data-bind="foreach: topics">
-            <span class="label" data-bind="text: $data"></span>
-          </p>
-        </article>
-      </div>
-    </main>
-  </div>
-</body>
-
+  <body>
+    <div class="container stack">
+      <header id="header">
+        <h1>Codeful</h1>
+        <p>
+          Small apps and experiments by <a href="https://marco.solazzi.me"
+          >Marco Solazzi</a>.
+        </p>
+      </header>
+      <main id="main">
+        <div data-bind="if: isLoading">
+          <p>Loading...</p>
+        </div>
+        <div data-bind="if: isError">
+          <p>Error!</p>
+        </div>
+        <div class="stack" data-bind="foreach: repos">
+          <article class="card">
+            <header>
+              <h2 class="card__title">
+                <a
+                  data-bind="attr: { href: homepageUrl}, text: name"
+                  target="_blank"
+                ></a>
+              </h2>
+            </header>
+            <p>
+              <span data-bind="text: description"></span><br />
+              <small>
+                <a data-bind="attr: { href: url }" target="_blank">GitHub</a>
+              </small>
+            </p>
+            <p data-bind="foreach: topics">
+              <span class="label" data-bind="text: $data"></span>
+            </p>
+          </article>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
