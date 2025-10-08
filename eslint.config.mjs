@@ -10,6 +10,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ko: true,
       },
       parserOptions: {
         ecmaVersion: 2022,
