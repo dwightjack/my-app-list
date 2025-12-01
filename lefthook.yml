@@ -8,7 +8,7 @@ pre-commit:
         parallel: false
         jobs:
           - run: pnpm oxlint {staged_files}
-          - run: pnpm dprint check --staged
+          - run: pnpm dprint check --staged --allow-no-files
     - name: Other files
       glob: "*.{hmtl,json,toml,yaml,css}"
       run: pnpm dprint check --staged --allow-no-files
