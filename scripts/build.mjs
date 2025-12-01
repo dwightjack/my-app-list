@@ -1,8 +1,8 @@
+import { readFile, rm, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
-import { rm, readFile, writeFile } from 'node:fs/promises';
-import { minify } from 'html-minifier';
 import { build } from 'esbuild';
+import { minify } from 'html-minifier';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 

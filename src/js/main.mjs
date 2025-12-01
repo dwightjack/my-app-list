@@ -1,5 +1,5 @@
 //@ts-check
-import { reactive, html } from 'https://esm.sh/@arrow-js/core';
+import { html, reactive } from 'https://esm.sh/@arrow-js/core';
 
 /**
  * @typedef {Object} Repository

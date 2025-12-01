@@ -9,7 +9,7 @@
   "packageManager": "pnpm@9.15.9",
   "scripts": {
     "start": "netlify dev",
-    "lint": "eslint ."
+    "lint": "biome check"
   },
   "engines": {
     "node": ">=20.13.1",
@@ -21,14 +21,10 @@
   },
   "bugs": "https://github.com/dwightjack/my-app-list/issues",
   "devDependencies": {
-    "@eslint/js": "^9.2.0",
+    "@biomejs/biome": "2.3.8",
     "@types/node": "^22.0.0",
-    "eslint": "^9.2.0",
-    "eslint-config-prettier": "^10.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "globals": "^15.2.0",
-    "netlify-cli": "^17.0.0",
-    "prettier": "^3.0.1"
+    "lefthook": "2.0.4",
+    "netlify-cli": "^17.0.0"
   },
   "dependencies": {
     "ky": "^1.2.4"
