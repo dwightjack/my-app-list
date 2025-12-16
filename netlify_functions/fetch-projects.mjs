@@ -35,10 +35,9 @@ export async function handler() {
 
     const repos = body.data.search.repos.map(({ repo }) => {
       const { repositoryTopics, ...data } = repo;
-      return {
-        ...data,
+      return Object.assign(data, {
         topics: repositoryTopics.nodes.map(({ topic }) => topic.name),
-      };
+      });
     });
 
     return {

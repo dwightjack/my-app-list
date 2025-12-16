@@ -25,11 +25,11 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "dprint": "0.50.2",
-    "lefthook": "1.13.6",
+    "lefthook": "2.0.12",
     "netlify-cli": "^17.0.0",
-    "oxlint": "1.20.0"
+    "oxlint": "1.33.0"
   },
   "dependencies": {
-    "ky": "^1.2.4"
+    "ky": "^1.14.1"
   }
 }

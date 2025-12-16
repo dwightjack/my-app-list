@@ -3,12 +3,7 @@ pre-commit:
   jobs:
     - name: JavaScript
       glob: "*.{js,mjs}"
-      stage_fixed: true
-      group:
-        parallel: false
-        jobs:
-          - run: pnpm oxlint {staged_files}
-          - run: pnpm dprint check --staged --allow-no-files
+      run: pnpm oxlint {staged_files}
     - name: Other files
-      glob: "*.{hmtl,json,toml,yaml,css}"
+      glob: "*.{js,mjs,hmtl,json,toml,yaml,css}"
       run: pnpm dprint check --staged --allow-no-files
