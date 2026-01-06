@@ -7,4 +7,6 @@ directory = "netlify_functions"
 node_bundler = "esbuild"
 
 [dev]
-publish = "src"
+framework = "#custom"
+command = "browser-sync src -w --port 8080"
+targetPort = 8080

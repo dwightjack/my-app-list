@@ -24,6 +24,7 @@
   "bugs": "https://github.com/dwightjack/my-app-list/issues",
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "browser-sync": "3.0.4",
     "dprint": "0.50.2",
     "lefthook": "2.0.12",
     "netlify-cli": "^23.12.3",

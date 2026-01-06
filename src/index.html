@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Codeful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400..700&display=swap"
+      rel="stylesheet"
+    >
     <link rel="stylesheet" href="./css/main.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
@@ -25,22 +31,21 @@
         </p>
       </header>
       <main id="main">
-        <div data-bind="if: isLoading">
-          <p>Loading...</p>
-        </div>
-        <div data-bind="if: isError">
-          <p>Error!</p>
-        </div>
-        <div class="stack" data-bind="foreach: repos">
+        <p data-bind="if: isLoading">
+          Loading...
+        </p>
+        <p data-bind="if: isError">
+          Error!
+        </p>
+        <div class="stack card-list" data-bind="foreach: repos">
           <article class="card">
-            <header>
-              <h2 class="card__title">
-                <a
-                  data-bind="attr: { href: homepageUrl}, text: name"
-                  target="_blank"
-                ></a>
-              </h2>
-            </header>
+            <span class="card__number mode:accent" aria-hidden="true"></span>
+            <h2 class="card__title">
+              <a
+                data-bind="attr: { href: homepageUrl}, text: name"
+                target="_blank"
+              ></a>
+            </h2>
             <p>
               <span data-bind="text: description"></span><br />
               <a
@@ -49,9 +54,9 @@
                 target="_blank"
               >GitHub</a>
             </p>
-            <p data-bind="foreach: topics" class="cluster">
-              <span class="label" data-bind="text: $data"></span>
-            </p>
+            <ul data-bind="foreach: topics" class="cluster" aria-label="Tags">
+              <li class="label" data-bind="text: $data"></li>
+            </ul>
           </article>
         </div>
       </main>
