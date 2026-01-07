@@ -78,23 +78,28 @@
 
 @layer base {
   :root {
-    --color-surface: oklch(97.26% 0.02027 81.739);
+    --color-surface: oklch(96.792% 0.01851 75.239);
     --color-accent: oklch(52.358% 0.14808 30.399);
+    --color-quiet: oklch(67.731% 0.08576 57.197);
     --color-primary: oklch(37.099% 0.01884 43.817);
     --font-family-serif: "Libre Baskerville", serif;
+    --font-family-sans: system-ui, sans-serif;
+    --font-family-mono: "JetBrains Mono", monospace;
   }
 
   .mode\:accent {
     --color-primary: oklch(97.26% 0.02027 81.739);
     --color-surface: oklch(52.358% 0.14808 30.399);
-    --color-accent: oklch(37.099% 0.01884 43.817);
+    --color-accent: oklch(97.26% 0.02027 81.739);
   }
 
   body {
-    font-family: system-ui, sans-serif;
+    font-family: var(--font-family-sans);
     font-weight: 400;
     background-color: var(--color-surface);
     color: var(--color-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E%0A");
+    background-blend-mode: color-burn;
   }
 
   h1, h2, h3, h4, h5, .serif {
@@ -102,6 +107,10 @@
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
+  }
+
+  h1 {
+    font-size: 3rem;
   }
 
   .container {
@@ -113,8 +122,48 @@
   }
 
   #header {
+    font-size: 1.25rem;
     padding-block-end: 1rem;
     border-block-end: 2px solid var(--color-light-orange);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  @media (any-hover: hover) {
+    :any-link {
+      transition: all 120ms linear;
+
+      &:hover {
+        background-color: color-mix(
+          in oklch,
+          var(--color-accent),
+          transparent 90%
+        );
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (position-anchor: --focus-anchor) {
+      :focus-visible {
+        anchor-name: --focus-anchor;
+        outline: 3px solid transparent;
+      }
+
+      html::after {
+        content: "";
+        position: fixed;
+        position-anchor: --focus-anchor;
+        outline: 3px solid var(--color-accent);
+        outline-offset: 3px;
+        z-index: 999;
+        inset: anchor(inside);
+        transition: inset 0.2s cubic-bezier(0.7, 0.08, 0.3, 0.97);
+      }
+    }
   }
 }
 
@@ -124,14 +173,15 @@
     flex-wrap: wrap;
     gap: 0.5rem;
 
-    & > .label {
-      margin-inline-start: 0;
+    &:where(ul, ol) {
+      padding-inline-start: 0;
+      list-style: none;
     }
   }
 
   .stack {
     > * + * {
-      margin-block-start: 2rem;
+      margin-block: 2rem 0;
     }
   }
 }
@@ -144,28 +194,40 @@
   }
   .card-list {
     counter-reset: cards;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+    gap: 2.5rem;
   }
 
   .card {
+    --card-space-inset: 24px;
     overflow: clip;
-    outline: 1px solid var(--color-accent);
-    outline-offset: 6px;
-    border: 1px solid var(--color-accent);
+    border: 2px solid var(--color-accent);
     border-radius: 1rem;
-    padding: 16px;
+    padding: 24px;
     font-size: 1.25rem;
     counter-increment: card;
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 0.75rem;
+    box-shadow:
+      0 0 0 6px var(--color-surface),
+      0 0 0 8px color-mix(in oklch, var(--color-quiet), transparent 50%),
+      0 2px 10px 8px
+      color-mix(in oklch, var(--color-surface), oklch(30% 0 0 / 50%));
+
+    > * {
+      margin-block: 0;
+    }
   }
 
   .card__number {
-    margin-inline-start: -16px;
-    margin-block-start: -16px;
+    margin-inline-start: calc(var(--card-space-inset) * -1);
+    margin-block-start: calc(var(--card-space-inset) * -1);
     font-family: var(--font-family-serif);
     font-weight: 700;
     font-size: 1.5rem;
+    letter-spacing: 0.05em;
     content: "#" counter(card, card-numbers);
     background-color: var(--color-surface);
     color: var(--color-primary);
@@ -173,7 +235,7 @@
     line-height: 2;
     align-self: start;
     padding-inline: 24px;
-    border-end-end-radius: inherit;
+    border-end-end-radius: 1rem;
   }
 
   .card__number::before {
@@ -181,20 +243,39 @@
   }
 
   .card__title {
-    margin-block: 0;
     font-size: 2rem;
+    margin-block-start: 0.25rem;
+    line-height: 1.5;
+
+    & > a {
+      text-underline-offset: 0.75rem;
+      text-decoration-color: var(--color-quiet);
+      text-decoration-thickness: 2px;
+    }
   }
 
   .card__link {
-    font-size: 1rem;
+    color: var(--color-accent);
+    text-underline-offset: 0.2rem;
   }
 
-  .label {
-    background-color: var(--color-bittersweet);
-    border-radius: 1lh;
+  .card__tags {
+    border-top: 1px solid;
+    border-image: repeating-linear-gradient(
+      90deg,
+      var(--color-quiet) 0 6px,
+      transparent 6px 12px
+    ) 1 0 0 0;
+    padding-block-start: 1rem;
+  }
+
+  .tag {
+    background-color: var(--color-surface);
+    border-radius: 0.5lh;
     padding: 0.4em 1em;
-    color: var(--color-light-yellow);
-    font-weight: 700;
-    font-size: 1rem;
+    color: var(--color-accent);
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    font-size: 0.95rem;
   }
 }

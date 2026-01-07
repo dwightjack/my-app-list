@@ -8,5 +8,5 @@ node_bundler = "esbuild"
 
 [dev]
 framework = "#custom"
-command = "browser-sync src -w --port 8080"
+command = "browser-sync src -w --port 8080 --no-open"
 targetPort = 8080
