@@ -60,6 +60,4 @@ class ViewModel {
 const vm = new ViewModel();
 ko.applyBindings(vm, document.querySelector("#main"));
 
-vm.status("loading");
-
-// vm.fetchProjects();
+vm.fetchProjects();
