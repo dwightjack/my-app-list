@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * @typedef {Object} Repository
  * @property {string} name
@@ -8,7 +10,7 @@
  */
 
 /**
- * @typedef {()=> T} Observable<T>
+ * @typedef {((value: T) => Observable<T>) & (() => T)} Observable
  * @template {any} T
  */
 
@@ -28,11 +30,13 @@ class ViewModel {
 
   /**
    * @type {Observable<boolean>}
+   * @readonly
    */
   isLoading = ko.computed(() => this.status() === "loading");
 
   /**
    * @type {Observable<boolean>}
+   * @readonly
    */
   isError = ko.computed(() => this.status() === "error");
 
@@ -56,4 +60,6 @@ class ViewModel {
 const vm = new ViewModel();
 ko.applyBindings(vm, document.querySelector("#main"));
 
-vm.fetchProjects();
+vm.status("loading");
+
+// vm.fetchProjects();
