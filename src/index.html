@@ -31,12 +31,16 @@
         </p>
       </header>
       <main id="main">
-        <p class="loader" data-bind="if: isLoading">
+        <!-- ko if: isLoading -->
+        <p class="loader">
           Loading...
         </p>
-        <p data-bind="if: isError">
+        <!-- /ko -->
+        <!-- ko if: isError -->
+        <p>
           Error!
         </p>
+        <!-- /ko -->
         <div class="card-list" data-bind="foreach: repos">
           <article class="card">
             <span class="card__number mode:accent" aria-hidden="true"></span>

@@ -32,13 +32,13 @@ class ViewModel {
    * @type {Observable<boolean>}
    * @readonly
    */
-  isLoading = ko.computed(() => this.status() === "loading");
+  isLoading = ko.pureComputed(() => this.status() === "loading");
 
   /**
    * @type {Observable<boolean>}
    * @readonly
    */
-  isError = ko.computed(() => this.status() === "error");
+  isError = ko.pureComputed(() => this.status() === "error");
 
   async fetchProjects() {
     this.status("loading");
