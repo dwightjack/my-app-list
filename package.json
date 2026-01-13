@@ -10,8 +10,8 @@
   "scripts": {
     "start": "netlify dev",
     "lint": "oxlint",
-    "format": "oxlint --fix && dprint fmt",
-    "check": "oxlint && dprint check"
+    "format": "oxlint --fix && oxfmt --write",
+    "check": "oxlint && oxfmt --check"
   },
   "engines": {
     "node": ">=22.18.0",
@@ -25,10 +25,10 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "browser-sync": "3.0.4",
-    "dprint": "0.50.2",
     "lefthook": "2.0.12",
     "netlify-cli": "^23.12.3",
-    "oxlint": "1.33.0"
+    "oxfmt": "0.24.0",
+    "oxlint": "1.39.0"
   },
   "dependencies": {
     "ky": "^1.14.1"

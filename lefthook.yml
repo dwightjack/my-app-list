@@ -1,9 +1,8 @@
 pre-commit:
-  parallel: true
   jobs:
     - name: JavaScript
       glob: "*.{js,mjs}"
       run: pnpm oxlint {staged_files}
     - name: Other files
       glob: "*.{js,mjs,hmtl,json,toml,yaml,css}"
-      run: pnpm dprint check --staged --allow-no-files
+      run: pnpm oxfmt --check --no-error-on-unmatched-pattern
