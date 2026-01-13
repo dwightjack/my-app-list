@@ -1,10 +1,12 @@
 [build]
 publish = "src/"
-command = "pnpm run lint"
+command = "pnpm run check"
 
 [functions]
 directory = "netlify_functions"
 node_bundler = "esbuild"
 
 [dev]
-publish = "src"
+framework = "#custom"
+command = "browser-sync src -w --port 8080 --no-open"
+targetPort = 8080

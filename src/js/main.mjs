@@ -1,5 +1,4 @@
-//@ts-check
-import { reactive, html } from 'https://esm.sh/@arrow-js/core';
+// @ts-check
 
 /**
  * @typedef {Object} Repository
@@ -11,73 +10,54 @@ import { reactive, html } from 'https://esm.sh/@arrow-js/core';
  */
 
 /**
- * @typedef {Object} Data
- * @property {'idle' | 'loading' | 'loaded' | 'error'} status
- * @property {Repository[]} repos
+ * @typedef {((value: T) => Observable<T>) & (() => T)} Observable
+ * @template {any} T
  */
 
 /**
- * @type {Data}
+ * @typedef {'idle' | 'loading' | 'loaded' | 'error'} Status
  */
-const data = reactive({
-  status: 'idle',
-  repos: [],
-});
 
-function branch(branches) {
-  return branches[data.status] || branches.default;
-}
+class ViewModel {
+  /**
+   * @type {Observable<Status>}
+   */
+  status = ko.observable("idle");
+  /**
+   * @type {Observable<Repository[]>}
+   */
+  repos = ko.observableArray([]);
 
-async function fetchProjects() {
-  data.status = 'loading';
+  /**
+   * @type {Observable<boolean>}
+   * @readonly
+   */
+  isLoading = ko.pureComputed(() => this.status() === "loading");
 
-  try {
-    const response = await fetch('/.netlify/functions/fetch-projects');
-    if (!response.ok) {
-      throw response;
+  /**
+   * @type {Observable<boolean>}
+   * @readonly
+   */
+  isError = ko.pureComputed(() => this.status() === "error");
+
+  async fetchProjects() {
+    this.status("loading");
+
+    try {
+      const response = await fetch("/.netlify/functions/fetch-projects");
+      if (!response.ok) {
+        throw response;
+      }
+      this.status("loaded");
+      this.repos.push(...(await response.json()));
+    } catch (error) {
+      console.error(error);
+      this.status("error");
+      this.repos.removeAll();
     }
-    Object.assign(data, {
-      status: 'loaded',
-      repos: await response.json(),
-    });
-  } catch (error) {
-    console.error(error);
-    Object.assign(data, {
-      status: 'error',
-      repos: [],
-    });
   }
 }
+const vm = new ViewModel();
+ko.applyBindings(vm, document.querySelector("#main"));
 
-/**
- *
- * @param {Repository} repository
- * @returns
- */
-function RepoItem({ name, topics, homepageUrl, description, url }) {
-  return html`<article class="card">
-    <header>
-      <h2>
-        <a href="${homepageUrl}" target="_blank">${name}</a>
-      </h2>
-    </header>
-    <p>
-      ${description}<br />
-      <small>
-        <a href="${url}" target="_blank">GitHub</a>
-      </small>
-    </p>
-    <p>${topics.map((txt) => html`<span class="label">${txt}</span>`)}</p>
-  </article>`.key(url);
-}
-
-const template = html`${() =>
-  branch({
-    loading: html`<p>Loading...</p>`,
-    loaded: data.repos.map(RepoItem),
-    error: html`<p>Error!</p>`,
-  })}`;
-
-template(document.getElementById('main'));
-
-fetchProjects();
+vm.fetchProjects();

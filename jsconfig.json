@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "target": "ESNext"
+    "target": "ESNext",
+    "checkJs": true
   },
   "exclude": ["node_modules"],
   "include": ["src/**/*.mjs", "netlify_functions/**/*.mjs"]
