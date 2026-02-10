@@ -25,10 +25,10 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "browser-sync": "3.0.4",
-    "lefthook": "2.0.12",
+    "lefthook": "2.1.0",
     "netlify-cli": "^23.12.3",
-    "oxfmt": "0.24.0",
-    "oxlint": "1.39.0"
+    "oxfmt": "0.28.0",
+    "oxlint": "1.43.0"
   },
   "dependencies": {
     "ky": "^1.14.1"
