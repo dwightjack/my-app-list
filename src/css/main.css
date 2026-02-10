@@ -122,6 +122,7 @@
     color: var(--color-primary);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.2' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E%0A");
     background-blend-mode: color-burn;
+    margin-block-end: 5rem;
   }
 
   h1,
@@ -145,30 +146,33 @@
     border-block-end: 2px solid var(--color-light-orange);
   }
 
-  :focus-visible {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 3px;
+  #main > * + * {
+    margin-block-start: 2rem;
   }
 
   @media (any-hover: hover) {
     :any-link {
-      transition: all 120ms linear;
+      transition:
+        color 150ms linear,
+        text-decoration-color 150ms linear;
 
       &:hover {
-        background-color: color-mix(
-          in oklch,
-          var(--color-accent),
-          transparent 90%
-        );
+        color: var(--color-accent);
+        text-decoration-color: transparent;
       }
     }
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
     @supports (position-anchor: --focus-anchor) {
       :focus-visible {
         anchor-name: --focus-anchor;
-        outline: 3px solid transparent;
+        outline-color: transparent;
       }
 
       html::after {
@@ -223,6 +227,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
     gap: 2.5rem;
+    padding-inline-start: 0;
+    margin-block: 0;
   }
 
   .card {
@@ -276,6 +282,20 @@
       text-underline-offset: 0.75rem;
       text-decoration-color: var(--color-quiet);
       text-decoration-thickness: 2px;
+      transition: all 250ms ease-in-out;
+      transition-property: color, text-underline-offset, text-decoration-color;
+
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration-color: var(--color-accent);
+          color: var(--color-accent);
+        }
+      }
+      @media (any-hover: hover) and (prefers-reduced-motion: no-preference) {
+        &:hover {
+          text-underline-offset: 0.25rem;
+        }
+      }
     }
   }
 
@@ -305,28 +325,30 @@
     font-size: 0.95rem;
   }
 
-  @property --size {
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: 0%;
-  }
-
-  @keyframes loader {
+  @keyframes bg-to-left {
     100% {
-      --size: 100%;
+      background-position: left;
     }
   }
 
-  .loader::after {
-    --size: 0%;
-    content: "";
-    display: block;
-    margin-block-start: 0.5rem;
-    height: 0.5rem;
-    width: 100%;
-    background: linear-gradient(var(--color-accent), var(--color-accent))
-      no-repeat 0 0 / var(--size) 100%;
-    mask-image: linear-gradient(-90deg, black, rgb(0 0 0 / 0.3));
-    animation: loader 700ms linear infinite;
+  .loader {
+    width: fit-content;
+    font-weight: bold;
+    color: var(--color-accent);
+    background: linear-gradient(90deg, var(--color-accent) 50%, #0000 0)
+      right/200% 100%;
+    animation: bg-to-left 1.5s infinite linear;
+  }
+  .loader span {
+    color: transparent;
+    padding-inline: 0.5rem 3rem;
+    background: inherit;
+    background-image: linear-gradient(
+      90deg,
+      var(--color-surface) 50%,
+      var(--color-accent) 0
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 }

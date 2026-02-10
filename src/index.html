@@ -31,13 +31,13 @@
       </header>
       <main id="main">
         <!-- ko if: isLoading -->
-        <p class="loader">Loading...</p>
+        <p class="loader"><span>Loading...</span></p>
         <!-- /ko -->
         <!-- ko if: isError -->
         <p>Error!</p>
         <!-- /ko -->
-        <div class="card-list" data-bind="foreach: repos">
-          <article class="card">
+        <ul class="card-list" data-bind="foreach: repos">
+          <li class="card">
             <span class="card__number mode:accent" aria-hidden="true"></span>
             <h2 class="card__title">
               <a
@@ -61,8 +61,8 @@
             >
               <li class="tag mode:accent" data-bind="text: $data"></li>
             </ul>
-          </article>
-        </div>
+          </li>
+        </ul>
       </main>
     </div>
   </body>
