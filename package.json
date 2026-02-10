@@ -6,7 +6,7 @@
   "homepage": "https://github.com/dwightjack/my-app-list",
   "main": "index.js",
   "license": "MIT",
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.29.2",
   "scripts": {
     "start": "netlify dev",
     "lint": "oxlint",
@@ -14,8 +14,8 @@
     "check": "oxlint && oxfmt --check"
   },
   "engines": {
-    "node": ">=22.18.0",
-    "pnpm": "^9.1.1"
+    "node": ">=24.13.0",
+    "pnpm": "^10.29.2"
   },
   "repository": {
     "type": "git",
