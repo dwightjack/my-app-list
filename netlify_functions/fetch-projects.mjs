@@ -1,9 +1,9 @@
-import ky from 'ky';
+import ky from "ky";
 
 export async function handler() {
   try {
     const body = await ky
-      .post('https://api.github.com/graphql', {
+      .post("https://api.github.com/graphql", {
         headers: {
           authorization: `bearer ${process.env.GITHUB_API_TOKEN}`,
         },
@@ -35,17 +35,16 @@ export async function handler() {
 
     const repos = body.data.search.repos.map(({ repo }) => {
       const { repositoryTopics, ...data } = repo;
-      return {
-        ...data,
+      return Object.assign(data, {
         topics: repositoryTopics.nodes.map(({ topic }) => topic.name),
-      };
+      });
     });
 
     return {
-      statusCode: 200,
       body: JSON.stringify(repos),
+      statusCode: 200,
     };
   } catch (error) {
-    return { statusCode: 500, body: error.toString() };
+    return { body: error.toString(), statusCode: 500 };
   }
 }

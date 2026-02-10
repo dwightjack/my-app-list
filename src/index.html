@@ -1,46 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codeful</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono,wght@1,100..800&family=Libre+Baskerville:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+      integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="./js/main.mjs"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codeful</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic" />
-  <script type="module" src="./js/main.mjs"></script>
-  <style>
-    body {
-      background-color: #f6f6f6;
-      color: #444;
-    }
-
-    .container {
-      max-inline-size: 980px;
-      margin-inline: auto;
-      padding-inline: 2rem;
-      padding-block-end: 2rem;
-    }
-
-    .cluster {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .cluster>.label {
-      margin-inline-start: 0;
-    }
-
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <header>
-      <h1>Codeful</h1>
-      <p>Small apps and experiments by <a href="https://marco.solazzi.me">Marco Solazzi</a>.</p>
-    </header>
-    <main id="main"></main>
-  </div>
-</body>
-
+  <body>
+    <div class="container stack">
+      <header id="header">
+        <h1>Codeful</h1>
+        <p>
+          Small apps and experiments by
+          <a href="https://marco.solazzi.me">Marco Solazzi</a>.
+        </p>
+      </header>
+      <main id="main">
+        <!-- ko if: isLoading -->
+        <p class="loader"><span>Loading...</span></p>
+        <!-- /ko -->
+        <!-- ko if: isError -->
+        <p>Error!</p>
+        <!-- /ko -->
+        <ul class="card-list" data-bind="foreach: repos">
+          <li class="card">
+            <span class="card__number mode:accent" aria-hidden="true"></span>
+            <h2 class="card__title">
+              <a
+                data-bind="attr: { href: homepageUrl}, text: name"
+                target="_blank"
+              ></a>
+            </h2>
+            <p data-bind="text: description"></p>
+            <p>
+              <a
+                class="card__link"
+                data-bind="attr: { href: url }"
+                target="_blank"
+                >GitHub</a
+              >
+            </p>
+            <ul
+              data-bind="foreach: topics"
+              class="card__tags cluster"
+              aria-label="Tags"
+            >
+              <li class="tag mode:accent" data-bind="text: $data"></li>
+            </ul>
+          </li>
+        </ul>
+      </main>
+    </div>
+  </body>
 </html>

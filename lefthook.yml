@@ -1,0 +1,8 @@
+pre-commit:
+  jobs:
+    - name: JavaScript
+      glob: "*.{js,mjs}"
+      run: pnpm oxlint {staged_files}
+    - name: Other files
+      glob: "*.{js,mjs,hmtl,json,toml,yaml,css}"
+      run: pnpm oxfmt --check --no-error-on-unmatched-pattern

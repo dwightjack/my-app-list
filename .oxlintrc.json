@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [".netlify"],
+  "plugins": ["jsdoc", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error",
+    "perf": "warn",
+    "suspicious": "error",
+    "pedantic": "warn"
+  },
+  "rules": {
+    "require-property-description": "off"
+  }
+}
