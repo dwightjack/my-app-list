@@ -6,7 +6,7 @@
   "homepage": "https://github.com/dwightjack/my-app-list",
   "main": "index.js",
   "license": "MIT",
-  "packageManager": "pnpm@10.29.2",
+  "packageManager": "pnpm@10.29.3",
   "scripts": {
     "start": "netlify dev",
     "lint": "oxlint",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "browser-sync": "3.0.4",
-    "lefthook": "2.1.0",
+    "lefthook": "2.1.1",
     "netlify-cli": "^23.12.3",
     "oxfmt": "0.28.0",
     "oxlint": "1.43.0"
