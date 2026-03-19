@@ -1,6 +1,6 @@
 import ky from "ky";
 
-export async function handler() {
+export default async () => {
   try {
     const body = await ky
       .post("https://api.github.com/graphql", {
@@ -40,8 +40,8 @@ export async function handler() {
       });
     });
 
-    return Response.json(repos);
+    return Response.json(repos, { status: 200 });
   } catch (error) {
     return new Response(error.toString(), { status: 500 });
   }
-}
+};

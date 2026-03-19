@@ -11,12 +11,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
-      integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "knockout": "https://cdn.jsdelivr.net/npm/knockout@3.5.2/+esm"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/knockout@3.5.2/build/output/knockout-latest.js"></script>
     <script type="module" src="./js/main.mjs"></script>
   </head>
 

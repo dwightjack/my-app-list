@@ -1,4 +1,7 @@
 // @ts-check
+/**
+ * @typedef {import("knockout")} ko
+ */
 
 /**
  * @typedef {Object} Repository
@@ -10,34 +13,18 @@
  */
 
 /**
- * @typedef {((value: T) => Observable<T>) & (() => T)} Observable
- * @template {any} T
- */
-
-/**
  * @typedef {'idle' | 'loading' | 'loaded' | 'error'} Status
  */
 
 class ViewModel {
-  /**
-   * @type {Observable<Status>}
-   */
-  status = ko.observable("idle");
-  /**
-   * @type {Observable<Repository[]>}
-   */
-  repos = ko.observableArray([]);
+  // oxlint-disable-next-line no-inline-comments
+  status = ko.observable(/**  @type {Status} */ ("idle"));
 
-  /**
-   * @type {Observable<boolean>}
-   * @readonly
-   */
+  // oxlint-disable-next-line no-inline-comments
+  repos = ko.observableArray(/**  @type {Repository[]} */ ([]));
+
   isLoading = ko.pureComputed(() => this.status() === "loading");
 
-  /**
-   * @type {Observable<boolean>}
-   * @readonly
-   */
   isError = ko.pureComputed(() => this.status() === "error");
 
   async fetchProjects() {
