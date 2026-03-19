@@ -40,11 +40,8 @@ export async function handler() {
       });
     });
 
-    return {
-      body: JSON.stringify(repos),
-      statusCode: 200,
-    };
+    return Response.json(repos);
   } catch (error) {
-    return { body: error.toString(), statusCode: 500 };
+    return new Response(error.toString(), { status: 500 });
   }
 }
