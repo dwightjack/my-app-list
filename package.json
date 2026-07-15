@@ -26,7 +26,7 @@
     "@types/node": "^24.12.0",
     "browser-sync": "3.0.4",
     "lefthook": "2.1.9",
-    "netlify-cli": "^24.3.0",
+    "netlify-cli": "^26.0.0",
     "oxfmt": "0.43.0",
     "oxlint": "1.58.0"
   },
