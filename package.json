@@ -23,7 +23,7 @@
   },
   "bugs": "https://github.com/dwightjack/my-app-list/issues",
   "devDependencies": {
-    "@types/node": "^24.12.0",
+    "@types/node": "^26.0.0",
     "browser-sync": "3.0.4",
     "lefthook": "2.1.9",
     "netlify-cli": "^24.3.0",
